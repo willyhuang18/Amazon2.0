@@ -1,9 +1,11 @@
 import React from 'react'
 
-function ProductFeed() {
+function ProductFeed({products}) {
   return (
     <div>
-        
+        {products.map(product =>(
+            <p>{product.title}</p>
+        ))}
     </div>
   )
 }
