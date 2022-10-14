@@ -31,6 +31,25 @@ function Header() {
           <SearchIcon className="h-12 p-4" />
         </div>
         {/* Rightside of Nav bar */}
+        <div
+          className="text-white flex items-center text-xs 
+        space-x-6 mx-6 whitespace-nowrap"
+        >
+          <div className=" link">
+            <p>Hello, Willy</p>
+            <p className="font-extrabold md:text-sm">Account and list</p>
+          </div>
+          <div className=" link">
+            <p>Returns </p>
+            <p className="font-extrabold md:text-sm">& Order</p>
+          </div>
+          <div className="relative link flex items-center">
+            <span className="absolute top-0 right-0 md:right-5 h-4 w-4 bg-yellow-400
+            text-center rounded-full text-black font-bold">4</span>
+            <ShoppingCartIcon className="h-10 " />
+            <p className="font-extrabold md:text-sm md:inline hidden mt-2">Cart</p>
+          </div>
+        </div>
       </div>
 
       <div></div>
