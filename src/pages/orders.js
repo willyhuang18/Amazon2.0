@@ -6,7 +6,7 @@ import moment from "moment";
 import Order from "../components/Order";
 function Orders({ orders }) {
   const { data: session } = useSession();
-  console.log(orders)
+  console.log(orders);
 
   return (
     <div>
@@ -21,9 +21,19 @@ function Orders({ orders }) {
           <h2> Please Sign in to see your orders</h2>
         )}
         <div className=" mt-5 space-y-4">
-            {orders?.map(order => (
-                <Order />
-            ))}
+          {orders?.map(
+            ({ id, amount, amountShipping, items, timestamp, images }) => (
+              <Order
+                key={id}
+                id={id}
+                amount={amount}
+                amountShipping={amountShipping}
+                items={items}
+                timestamp={timestamp}
+                images={images}
+              />
+            )
+          )}
         </div>
       </main>
     </div>
@@ -35,7 +45,7 @@ export default Orders;
 export async function getServerSideProps(context) {
   const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
   //get users logged in data
- const session = await getSession(context);
+  const session = await getSession(context);
   if (!session) {
     return {
       props: {},
